@@ -61,5 +61,18 @@ class ProductTest < ActiveSupport::TestCase
 
     end
 
-
+    test "product is not valid with title being too short" do
+        product = Product.new(title:        "Krotki",
+                            description:    "to jest krotki tytul",
+                            price:          1,
+                            image_url:      "fred.gif")
+        assert product.invalid?, product.errors[:title].join('; ') #, "#{product.title} shouldn't be valid"
+        
+        product = Product.new(title:        "BardzoDlugiTytul",
+                            description:    "to jest dlugi tytul",
+                            price:          1,
+                            image_url:      "fred.gif")
+        assert product.valid?, "#{product.title} should be valid"
+    end
+    
 end
