@@ -52,4 +52,14 @@ class ProductsControllerTest < ActionController::TestCase
 
     assert_redirected_to products_path
   end
+  
+  test "should check products view" do
+    get :index
+    assert_select '.list_actions a', minimum: 9
+    assert_select 'a', 'New Product'
+    assert_select '.list_description dt', 'MyString'
+    assert_select '#columns #main .list_line_odd', 2
+    assert_select '#columns #main .list_line_even', 1
+  end
+  
 end

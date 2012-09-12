@@ -46,6 +46,7 @@
      float: left;
      padding: 1em 2em;
      width: 13em;
+     height: 200px;
      background: #141;
      
      ul {
@@ -59,6 +60,13 @@
            font-size: small;
          }
        }
+     }
+     
+     .time {
+       color: #bfb;
+       font-size: small;
+       position: absolute;
+       bottom: 40px;
      }
    }
  }
